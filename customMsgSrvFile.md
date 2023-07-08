@@ -120,4 +120,127 @@ int64 sum
 ```
 
 ### 2-7 새로운 interface 테스트
-* 
+* CMakeLists.txt와 package.xml 파일 수정
+
+### 2-7-1 Num.msg 테스팅 (pub/sub)
+* 이전에 작성한 publisher/subscriber package를 수정 
+* Publisher
+```c++
+#include <chrono>
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "tutorial_interfaces/msg/num.hpp"     // CHANGE
+
+using namespace std::chrono_literals;
+
+class MinimalPublisher : public rclcpp::Node
+{
+public:
+  MinimalPublisher()
+  : Node("minimal_publisher"), count_(0)
+  {
+    publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);    // CHANGE
+    timer_ = this->create_wall_timer(
+      500ms, std::bind(&MinimalPublisher::timer_callback, this));
+  }
+
+private:
+  void timer_callback()
+  {
+    auto message = tutorial_interfaces::msg::Num();                               // CHANGE
+    message.num = this->count_++;                                        // CHANGE
+    RCLCPP_INFO(this->get_logger(), "Publishing: '%d'", message.num);    // CHANGE
+    publisher_->publish(message);
+  }
+  rclcpp::TimerBase::SharedPtr timer_;
+  rclcpp::Publisher<tutorial_interfaces::msg::Num>::SharedPtr publisher_;         // CHANGE
+  size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+* Subscriber
+```c++
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "tutorial_interfaces/msg/num.hpp"     // CHANGE
+using std::placeholders::_1;
+
+class MinimalSubscriber : public rclcpp::Node
+{
+public:
+  MinimalSubscriber()
+  : Node("minimal_subscriber")
+  {
+    subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(          // CHANGE
+      "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+  }
+
+private:
+  void topic_callback(const tutorial_interfaces::msg::Num::SharedPtr msg) const       // CHANGE
+  {
+    RCLCPP_INFO(this->get_logger(), "I heard: '%d'", msg->num);              // CHANGE
+  }
+  rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;       // CHANGE
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalSubscriber>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+* CMakeLists.txt (아래 코드 추가)
+```cmake
+#...
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(tutorial_interfaces REQUIRED)                         # CHANGE
+
+add_executable(talker src/publisher_member_function.cpp)
+ament_target_dependencies(talker rclcpp tutorial_interfaces)         # CHANGE
+
+add_executable(listener src/subscriber_member_function.cpp)
+ament_target_dependencies(listener rclcpp tutorial_interfaces)     # CHANGE
+
+install(TARGETS
+  talker
+  listener
+  DESTINATION lib/${PROJECT_NAME})
+
+ament_package()
+```
+
+* package.xml (아래 코드 추가)
+```xml
+<depend>tutorial_interfaces</depend>
+```
+
+* package 빌드하기
+```bash
+colcon build --packages-select cpp_srvcli
+```
+
+* 2개 터미널 열고 ros2_ws에 대한 source 수행
+
+* service server 실행(터미널 1)
+```bash
+ros2 run cpp_srvcli server
+```
+* service client 실행(터미널 2)
+```bash
+ros2 run cpp_srvcli client 2 3 1
+```
