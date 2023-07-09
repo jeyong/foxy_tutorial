@@ -9,18 +9,83 @@
 ## 2. 실습
 ### 2-1 package 생성하기
 
+```bash
+cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_cmake cpp_parameters --dependencies rclcpp
+```
 
 ### 2-1-1 package.xml 업데이트하기
-
+* package 생성시에 --dependencies 옵션을 사용하여서 package.xml과 CMakeLists.txt에 의존성을 추가하지 않아도 된다.
+* package.xml 수정하기
+```xml
+<description>C++ parameter tutorial</description>
+<maintainer email="you@email.com">Your Name</maintainer>
+<license>Apache License 2.0</license>
+```
 ### 2-2 C++ node 작성하기
+* ros2_ws/src/cpp_parameters/src/cpp_parameters_node.cpp 파일 생성
+```c++
+#include <chrono>
+#include <functional>
+#include <string>
 
+#include <rclcpp/rclcpp.hpp>
+
+using namespace std::chrono_literals;
+
+class MinimalParam : public rclcpp::Node
+{
+public:
+  MinimalParam()
+  : Node("minimal_param_node")
+  {
+    this->declare_parameter("my_parameter", "world");
+
+    timer_ = this->create_wall_timer(
+      1000ms, std::bind(&MinimalParam::timer_callback, this));
+  }
+
+  void timer_callback()
+  {
+    std::string my_param = this->get_parameter("my_parameter").as_string();
+
+    RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
+
+    std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
+    this->set_parameters(all_new_parameters);
+  }
+
+private:
+  rclcpp::TimerBase::SharedPtr timer_;
+};
+
+int main(int argc, char ** argv)
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalParam>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
 ### 2-2-1 실행자(executable) 추가하기
+* CMakeLists.txt 수정하기 (find_package(rclcpp REQUIRED) 아래 추가하기)
+```cmake
+add_executable(minimal_param_node src/cpp_parameters_node.cpp)
+ament_target_dependencies(minimal_param_node rclcpp)
+
+install(TARGETS
+    minimal_param_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+```
 
 ### 2-3 빌드 및 실행하기
 * 의존성 확인하는 명령 실행
 ```bash
+cd ~/ros2_ws
 rosdep install -i --from-path src --rosdistro foxy -y
 ```
+
 * 새 package를 빌드하기
 ```bash
 cd ~/ros2_ws
