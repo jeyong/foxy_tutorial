@@ -3,12 +3,12 @@
 2. 실습
 
 ## 1. 개요
-* ROS 2 graph
+* ROS 2 graph란?
   * ROS 2 핵심 개념
   * ROS 2를 구성하는 요소들이 어떻게 연결되고 실해오디는지 보여주는 방식
 
-* ROS 2에서의 node
-  * 각 node는 하나의 목적을 가지고 그 일에 대한 책임을 수행한다.
+* ROS 2에서의 node란?
+  * 각 node는 하나의 목적을 가지고 그 목적을 위한 일을 수행하는 책임을 진다.
     * ex) wheel motor 제어, lidar의 센서 데이터를 publish하기, ...
   * 각 node는 다른 nodes와 data를 주고 받는다. 주고 받는 방식으로는 topics, services, actions이 있다.
 
@@ -18,16 +18,17 @@
 
 ## 2. 실습
 ### 2-1 ros2 run
-* ros2 run 명령 : package내에 있는 실행자(executable)를 실행시킨다.
+* ros2 run 명령 형태 : package내에 있는 실행자(executable)를 실행시킨다.
 ```
 ros2 run <package_name> <executable_name>
 ```
+
 * 새 터미널을 열고 아래 명령 실행
 ```bash
 ros2 run turtlesim turtlesim_node
 ```
 
-* 결과 : turtlesim 화면이 열린다.
+* 결과 : turtlesim 창이 열린다.
 
 
 ### 2-2 ros2 node list
@@ -54,12 +55,19 @@ ros2 run turtlesim turtle_teleop_key
 ```
 
 ### 2-2-1 Remapping
-* Remapping
+* 기본 node 속성에 새로운 값을 재할당하는 옵션
+  *  속성의 종류
+    * node name
+    * topic names
+    * service names
+    * ...
+
+* /turtlesim node의 이름을 my_turtle로 재할당하는 명령 실행
 ```bash
 ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 ```
 
-* ros2 node list 다시 실행
+* ros2 node list 명령 다시 실행해보기
 ```
 /turtlesim
 /teleop_turtle
@@ -67,17 +75,17 @@ ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 ```
 
 ### 2-3 ros node info
-* node의 이름을 알고 있으면 해당 node에 대한 더 많은 정보 얻기
+* node의 이름을 알고 있는 경우 해당 node의 상세 정보를 알기 위한 명령 형태
 ```bash
 ros2 node info <node_name>
 ```
 
-* 아래와 같이 실행
+* my_turtle라는 이름을 가지는 node의 상세 정보를 얻기 위한 명령
 ```bash
 ros2 node info /my_turtle
 ```
 
-* ros2 node info는 subscribers, publishers, services, actions의 목록을 반환
+* 결과
 ```
 /my_turtle
   Subscribers:
@@ -106,6 +114,10 @@ ros2 node info /my_turtle
     /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
   Action Clients:
 ```
+  * ros2 node info는 subscribers, publishers, services, actions의 목록을 반환
 
-* ros2 node info /teleop_turtle 실행해보기
-  
+* /teleop_turtle node에 대해서도 상세 정보 얻는 명령 실행해보기
+```bash
+ros2 node info /teleop_turtle node
+```
+

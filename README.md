@@ -8,14 +8,15 @@
   * git 사용법
 * CLI 도구
   * [환경설정](./환경설정.md)
-  * [turtlesim, ros2, rqt 사용](./turtlesim_ros2_rqt.md)
-  * [nodes](./nodes.md)
-  * [topics](./topics.md)
-  * [services](./services.md)
-  * [parameters](./parameters.md)
-  * [actions](./actions.md)
-  * [rqt_console](./usingRqt_console.md)
-  * [node 실행](./launchingNode.md)
+  * [turtlesim, ros2, rqt 사용하기](./turtlesim_ros2_rqt.md)
+  * [nodes 이해](./nodes.md)
+  * [topics 이해](./topics.md)
+  * [services 이해](./services.md)
+  * [parameters 이해](./parameters.md)
+  * [actions 이해](./actions.md)
+  * [rqt_console 사용하여 log 보기](./usingRqt_console.md)
+  * [nodes 실행하기](./launchingNode.md)
+  * [data 기록 및 재생](./recordingPlayingBackData.md)
 * Client Library
   * [concoln으로 package 빌드하기](./colconToBuildPackage.md)
   * [workspace 생성](./creatingWorkspace.md)

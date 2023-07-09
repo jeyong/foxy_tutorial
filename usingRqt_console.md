@@ -1,12 +1,14 @@
 # rqt_console 사용해서 logs 보기
 1. 개요
 2. 실습
-
+  1. 설정
+  2. rqt_console에서 messages
+  3. Logger level
 
 ## 1. 개요
 * log
   * node의 내부 상태를 출력
-  * 사용자가 내부 상택를 확인하는데 도움
+  * 사용자가 내부 상태를 확인하는데 도움
 * rqt_console
   * log 메시지를 조사하는 GUI 도구
   * 터미널에서 출력되는 메시지를 좀더 조직적이고 똑똑한 방법으로 확인 가능
@@ -15,7 +17,7 @@
 ## 2. 실습
 
 ### 2-1 설정
-* rqt_console 구동시키기 명령
+* rqt_console 시작 명령 실행
 ```bash
 ros2 run rqt_console rqt_console
 ```
@@ -24,7 +26,7 @@ ros2 run rqt_console rqt_console
 
 ![](https://docs.ros.org/en/foxy/_images/console.png)
 
-* 새 터미널에서 turtlesim 구동시키기 명령
+* 새 터미널에서 turtlesim 구동시키기 명령 실행
 ```bash
 ros2 run turtlesim turtlesim_node
 ```

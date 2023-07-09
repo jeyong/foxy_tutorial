@@ -1,10 +1,16 @@
 # turtlesim, ros2, rqt 사용하기
 1. 소개
 2. 실습
+  1. turtlesim 설치하기
+  2. turtlesim 구동시키기
+  3. turtlesim 사용하기
+  4. rqt 설치하기
+  5. rqt 사용하기
+  6. remapping
+  7. turtlesim 종료하기
 
 ## 1. 소개
 * turtlesim package
-  * 설치하기
   * ROS 2를 학습을 도와주기 위해서 제공하는 간단한 시뮬레이터
   * ROS 2 개념을 소개하기 위해서 가장 흔히 사용
 * ros2 도구
@@ -107,7 +113,10 @@ rqt
 
 
 ### 2-6 Remapping
-* 
+* 새 터미널에서 아래 실행
 ```bash
 ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
 ```
+
+### 2-7 turtlesim 종료하기
+* 각 터미널에서 Ctrl + C 키를 누르면 종료된다.
