@@ -1,6 +1,12 @@
-# package 생성하기
+# package 생성하기 (C++)
 1. 개요
 2. 실습
+  1. package 생성하기
+  2. package 빌드하기
+  3. setup 파일 source하기
+  4. package 사용하기
+  5. package contents 살펴보기
+  6. 커스텀 package.xml
 
 ## 1. 개요
 * 새로운 package 생성하기
@@ -9,38 +15,20 @@
   * ROS 2에서 code를 설치하거나 공유하기 위해서는 하나의 package로 구성해야함
   * package로 구성하면 배포 가능하고 다른 사람들이 빌드해서 쉽게 사용이 가능
 * ROS 2 package 구성
-  * C++
 ```
 CMakeLists.txt : package를 빌드하는 방법 
 include/<package_name> directory : package 공용 헤더 파일
 package.xml : package에 대한 meta 정보
 src 디렉토리 : 소스 코드
 ```
-  * Python
-```
-package.xml : package에 대한 meta 정보
-resource/<package_name> marker file
-setup.cfg : 실행자로 사용될때 필요한 파일
-setup.py : package를 설치하는 방법 지시
-<package_name> 디렉토리 : ros2 도구로 package 찾을때 필요
-```
 
-* 간단한 package 구성 - C++
+* 간단한 package 구성
 ```
 my_package/
      CMakeLists.txt
      include/my_package/
      package.xml
      src/
-```
-* 간단한 package 구성 - Python
-```
-my_package/
-      package.xml
-      resource/my_package
-      setup.cfg
-      setup.py
-      my_package/
 ```
 
 ## 2. 실습
@@ -56,7 +44,7 @@ cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_cmake <package_name>
 ```
 
-* 아래 명령으로 package 생성
+* 아래 명령으로 package 생성 명령 실행 (my_package)
 ```bash
 ros2 pkg create --build-type ament_cmake --node-name my_node my_package
 ```
@@ -85,17 +73,17 @@ creating ./my_package/src/my_node.cpp
   * src 디렉토리 내부에 my_package라는 폴더 생성
 
 ### 2-2. package 빌드하기
-* workspace의 폴더로 이동
+* workspace의 폴더로 이동 명령 실행
 ```bash
 cd ~/ros2_ws
 ```
 
-* package 빌드하기
+* package 빌드 명령 실행
 ```bash
 colcon build
 ```
 
-* 특정 package만 빌드하기 (my_package)
+* 특정 package만 빌드 명령 실행 (my_package)
 ```bash
 colcon build --packages-select my_package
 ```
@@ -118,14 +106,15 @@ hello world my_package package
 ```
 
 ### 2-5 package contents 살펴보기
-* ros2_ws/src/my_package 내부
+* ros2_ws/src/my_package 내부 살펴보기
 ```
 CMakeLists.txt  include  package.xml  src
 ```
-  * my_node.cpp 파일은 src 디렉토리 내부에 있므
+  * ros2 pkg create 명령으로 자동 생성된 것들
+  * my_node.cpp 파일은 src 디렉토리 내부에 있음
 
 ### 2-6 package.xml 수정하기
-* package.xml
+* package.xml (수정 : description, license, maintainer 필드)
 ```xml
 <?xml version="1.0"?>
 <?xml-model
@@ -148,33 +137,4 @@ CMakeLists.txt  include  package.xml  src
  </export>
 </package>
 ```
-
-* setup.py
-```python
-from setuptools import setup
-
-package_name = 'my_py_pkg'
-
-setup(
- name=package_name,
- version='0.0.0',
- packages=[package_name],
- data_files=[
-     ('share/ament_index/resource_index/packages',
-             ['resource/' + package_name]),
-     ('share/' + package_name, ['package.xml']),
-   ],
- install_requires=['setuptools'],
- zip_safe=True,
- maintainer='TODO',
- maintainer_email='TODO',
- description='TODO: Package description',
- license='TODO: License declaration',
- tests_require=['pytest'],
- entry_points={
-     'console_scripts': [
-             'my_node = my_py_pkg.my_node:main'
-     ],
-   },
-)
-```
+  * 수정 후 저장하기!

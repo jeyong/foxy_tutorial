@@ -1,6 +1,11 @@
 # data 기록 및 재생
 1. 개요
 2. 실습
+  1. 설정
+  2. topic 선택하기
+  3. ros2 bag record
+  4. ros2 bag info
+  5. ros2 bag play
 
 ## 1. 개요
 * ros2 bag 명령
@@ -17,21 +22,27 @@ sudo apt-get install ros-foxy-ros2bag \
 
 ## 2. 실습
 ### 2-1 설정
+* 2개 turtlesim nodes 구동시키기 : /turtlesim ,  /teleop_turtle 
+
+* 새 터미널에서 아래 명령 실행
 ```bash
 ros2 run turtlesim turtlesim_node
 ```
 
+* 새 터미널에서 아래 명령 실행
 ```bash
 ros2 run turtlesim turtle_teleop_key
-```
 
+* data를 저장할 새 디렉토리 만들기
 ```bash
 mkdir bag_files
 cd bag_files
 ```
 
 ### 2-2 topic 선택하기
-* 
+* ros2 bag은 topics으로 publish되는 messages만 기록한다.
+
+* 새 터미널에서 현재 시스템에 있는 topics 목록을 보는 명령 실행
 ```bash
 ros2 topic list
 ```
@@ -46,10 +57,11 @@ ros2 topic list
 
 * /turtle_teleop node가 /turtle1_cmd_vel topic으로 명령을 전달하여 turtle을 이동시킨다는 것을 배웠다.
 
-* /turtle1/cmd_vel이 publish하는 data를 보기 위해서 아래 명령 실행
+* /turtle1/cmd_vel이 publish하는 data 내용을 보기 위해서 아래 명령 실행
 ```bash
 ros2 topic echo /turtle1/cmd_vel
 ```
+
 * 실행 후 메시지 확인을 위해서는 teleop를 실행한 터미널로 가서 화살표로 움직여보기
 
 * 결과
@@ -71,7 +83,7 @@ angular:
 ros2 bag record <topic_name>
 ```
 
-* /turtle1/cmd_vel topic 저장하기 명령
+* /turtle1/cmd_vel topic 저장하는 명령 실행
 ```bash
 ros2 bag record /turtle1/cmd_vel
 ```
@@ -84,17 +96,22 @@ ros2 bag record /turtle1/cmd_vel
 [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 ```
 
+* ros2 bag 명령으로 /turtle1/cmd_vel topic에서 publish되는 data를 기록하기 시작한다. teleop 터미널로 와서 turtle 이동시키기. 
+* 나중에 replay를 위해서 움직인 패턴을 기억해 두자!
+
 ![](https://docs.ros.org/en/foxy/_images/record.png)
 
-* 저장되는 data 파일 형태 : rosbag2_year_month_day-hour_minute_second
-* 추가로 metadata.yaml 파일을 포함
+  * 저장되는 data 파일 형태 : rosbag2_year_month_day-hour_minute_second
+  * 추가로 metadata.yaml 파일을 포함
+
+* Ctrl+C로 종료하기 
 
 ### 2-3-1 여러 topics 저장하기
-* /turtle1/cmd_vel 과 /turtle1/pose topics 저장
+* ros2 bag으로 저장하는 파일 이름 설정하는 명령 실행
 ```bash
 ros2 bag record -o subset /turtle1/cmd_vel /turtle1/pose
 ```
-* -o 옵션 : bag 파일 이름 지정
+  * -o 옵션 : bag 파일 이름 지정
 
 * 결과
 ```
@@ -106,14 +123,16 @@ ros2 bag record -o subset /turtle1/cmd_vel /turtle1/pose
 ```
 
 ### 2-4 ros2 bag info
-* ros bag 파일에 대한 상세 정보
+* ros bag 파일에 대한 상세 정보 명령 형식
 ```bash
 ros2 bag info <bag_file_name>
 ```
-* subset이라는 bag 파일에 대해서 명령 실행해보기
+
+* subset이라는 bag 파일에 대해서 명령 실행
 ```bash
 ros2 bag info subset
 ```
+
 * 결과
 ```
 Files:             subset.db3
