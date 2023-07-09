@@ -11,6 +11,7 @@
 ![](https://docs.ros.org/en/foxy/_images/Service-SingleServiceClient.gif)
 
 * 동작 이해하기
+
 ![](https://docs.ros.org/en/foxy/_images/Service-MultipleServiceClient.gif)
 
 ## 2. 실습
@@ -172,6 +173,7 @@ ros2 service call <service_name> <service_type> <arguments>
 ros2 service call /clear std_srvs/srv/Empty
 ```
 * 결과
+
 ![](https://docs.ros.org/en/foxy/_images/clear.png)
   * turtlesim 창을 clear하는 명령
 

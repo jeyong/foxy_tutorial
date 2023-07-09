@@ -115,6 +115,7 @@ ros2 run turtlesim turtlesim_node
 ```
 
 * 결과
+
 ![](https://docs.ros.org/en/foxy/_images/overlay.png)
 
   * "MyTurtleSim" 타이틀 확인하기

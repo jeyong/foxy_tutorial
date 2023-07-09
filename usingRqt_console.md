@@ -21,6 +21,7 @@ ros2 run rqt_console rqt_console
 ```
 
 * 결과
+
 ![](https://docs.ros.org/en/foxy/_images/console.png)
 
 * 새 터미널에서 turtlesim 구동시키기 명령
