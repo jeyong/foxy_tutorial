@@ -79,6 +79,9 @@ ros2 service list
   * /turtle1/teleport_relative
 
 * 앞에서 rqt를 이용해서 몇 가지 services로 상호작용하는 것을 배웠다.
+  * /clear
+  * /spawn
+  * /turtle1/set_pen
 
 ### 2-3 ros2 service type
 * service type이란
