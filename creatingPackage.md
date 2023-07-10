@@ -107,7 +107,7 @@ hello world my_package package
 
 ### 2-5 package contents 살펴보기
 * ros2_ws/src/my_package 내부 살펴보기
-```
+```bash
 CMakeLists.txt  include  package.xml  src
 ```
    * ros2 pkg create 명령으로 자동 생성된 것들
