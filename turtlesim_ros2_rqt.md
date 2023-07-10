@@ -1,13 +1,13 @@
 # turtlesim, ros2, rqt 사용하기
 1. 소개
 2. 실습
-  1. turtlesim 설치하기
-  2. turtlesim 구동시키기
-  3. turtlesim 사용하기
-  4. rqt 설치하기
-  5. rqt 사용하기
-  6. remapping
-  7. turtlesim 종료하기
+   1. turtlesim 설치하기
+   2. turtlesim 구동시키기
+   3. turtlesim 사용하기
+   4. rqt 설치하기
+   5. rqt 사용하기
+   6. remapping
+   7. turtlesim 종료하기
 
 ## 1. 소개
 * turtlesim package
