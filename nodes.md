@@ -5,7 +5,9 @@
 ## 1. 개요
 * ROS 2 graph란?
   * ROS 2 핵심 개념
-  * ROS 2를 구성하는 요소들이 어떻게 연결되고 실해오디는지 보여주는 방식
+  * ROS 2를 구성하는 요소들이 어떻게 연결되고 실행되는지 보여주는 방식
+
+![](https://upload.wikimedia.org/wikipedia/commons/0/08/Directed_acyclic_graph.png)
 
 * ROS 2에서의 node란?
   * 각 node는 하나의 목적을 가지고 그 목적을 위한 일을 수행하는 책임을 진다.
@@ -57,10 +59,10 @@ ros2 run turtlesim turtle_teleop_key
 ### 2-2-1 Remapping
 * 기본 node 속성에 새로운 값을 재할당하는 옵션
   *  속성의 종류
-    * node name
-    * topic names
-    * service names
-    * ...
+     * node name
+     * topic names
+     * service names
+     * ...
 
 * /turtlesim node의 이름을 my_turtle로 재할당하는 명령 실행
 ```bash
