@@ -1,13 +1,13 @@
 # 커스텀 msg와 srv 파일 생성하기
 1. 소개
 2. 실습
-  1. 새 package 생성하기
-  2. custom 정의 생성
-  3. CMakeLists.txt
-  4. package.xml
-  5. tutorial_interfaces package 빌드하기
-  6. msg와 srv 생성 확인
-  7. 새 interface 테스트하기
+   1. 새 package 생성하기
+   2. custom 정의 생성
+   3. CMakeLists.txt
+   4. package.xml
+   5. tutorial_interfaces package 빌드하기
+   6. msg와 srv 생성 확인
+   7. 새 interface 테스트하기
 
 ## 1. 소개
 * 사용자가 원하는 .msg와 .svr 파일 정의하여 사용하는 방법
