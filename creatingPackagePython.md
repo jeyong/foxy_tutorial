@@ -1,7 +1,13 @@
 # package 생성하기 (Python)
 1. 개요
 2. 실습
-
+   1. package 생성하기
+   2. package 빌드하기
+   3. setup 파일 source하기
+   4. package 사용하기
+   5. package contents 살펴보기
+   6. package.xml 수정하기
+   
 ## 1. 개요
 * 새로운 package 생성하기
 * package란?
