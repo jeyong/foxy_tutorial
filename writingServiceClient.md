@@ -21,10 +21,10 @@
 * cpp_srvcli package 생성하는 명령 실행
 ```bash
 ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp example_interfaces
-
+```
 * exampel_interfaces package 내에 .srv 파일 (service에서 주고 받는 구조)
 
-```bash
+```
 int64 a
 int64 b
 ---
