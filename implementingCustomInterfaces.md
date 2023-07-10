@@ -7,13 +7,13 @@
    4. 해보기
 ## 1. 개요
 * 커스텀 interfaces를 구현하는 방법 (내 package에서 커스텀 interface를 선언하고 사용하기)
-  * custom interfaces를 특정 package내에서 구현하는 것을 추천
-  * 하나의 package내에서 선언, 생성, 사용하는 것이 가끔은 편리할 수 있다!
+  * custom interfaces를 특정 package내에서 구현하는 것을 추천하지만
+  * 하나의 package내에서 선언, 생성, 사용하는 것이 가끔은 편리할 수 있다! (추천하지는 않음)
 ## 2. 실습
 ### 2-1 package 생성하기
 * more_interfaces package 생성하고 이 package 내부에 msg 디렉토리 만들기
 ```bash
-cd ~/ros2_ws/srcx
+cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_cmake more_interfaces
 mkdir more_interfaces/msg
 ```
