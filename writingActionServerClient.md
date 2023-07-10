@@ -1,9 +1,9 @@
-# action server와 client 작성하기
+# action server와 client 작성하기(C++)
 1. 소개
 2. 실습
-  1. action_tutorials_cpp package 생성하기
-  2. action server 작성하기
-  3. action client 작성하기
+   1. action_tutorials_cpp package 생성하기
+   2. action server 작성하기
+   3. action client 작성하기
 
 ## 1. 소개
 * action server와 client 구현하는 방법 이해

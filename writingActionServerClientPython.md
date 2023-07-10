@@ -1,7 +1,8 @@
-# action server와 client 작성하기
+# action server와 client 작성하기(Python)
 1. 소개
 2. 실습
-
+   1. action server 작성하기
+   2. action client 작성하기
 ## 1. 소개
 * action은 ROS내의 비동기 통신
   * action client가 action server에게 goal request를 전송
