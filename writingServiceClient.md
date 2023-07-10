@@ -24,7 +24,7 @@ ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp exampl
 
 * exampel_interfaces package 내에 .srv 파일 (service에서 주고 받는 구조)
 
-```c++
+```bash
 int64 a
 int64 b
 ---
