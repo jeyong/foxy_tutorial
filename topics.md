@@ -116,6 +116,8 @@ angular:
   ---
 ```
 
+* Hide -> Debug 체크박스 해하기
+
 ![](https://docs.ros.org/en/foxy/_images/debug.png)
 
 * 위 그림에서 /_ros2cli_26646 는 echo 명령으로 생성된 node
