@@ -110,8 +110,8 @@ hello world my_package package
 ```
 CMakeLists.txt  include  package.xml  src
 ```
-  * ros2 pkg create 명령으로 자동 생성된 것들
-  * my_node.cpp 파일은 src 디렉토리 내부에 있음
+   * ros2 pkg create 명령으로 자동 생성된 것들
+   * my_node.cpp 파일은 src 디렉토리 내부에 있음
 
 ### 2-6 package.xml 수정하기
 * package.xml (수정 : description, license, maintainer 필드)
