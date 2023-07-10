@@ -1,10 +1,10 @@
 # 간단한 publisher와 subscriber 작성하기 (Python)
 1. 소개
 2. 실습
-  1. package 생성하기
-  2. publisher node 작성하기
-  3. subscriber node 작성하기
-  4. 빌드 및 실행
+   1. package 생성하기
+   2. publisher node 작성하기
+   3. subscriber node 작성하기
+   4. 빌드 및 실행
 ## 1. 소개
 * Python으로  publisher와 subscriber node를 생성하고 실행하기
 

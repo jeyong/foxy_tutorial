@@ -25,7 +25,7 @@ ros2 pkg create --build-type ament_cmake cpp_pubsub
 ```
 
 ### 2-2 publisher node 작성하기
-* 아래 명령 실행하여 talker 코드 다운받기
+* 아래 명령 실행하여 talker 코드 다운받기 (ros2_ws/src/cpp_pubsub/src 아래)
 ```bash
 wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_publisher/member_function.cpp
 ```
