@@ -1,10 +1,10 @@
 # 커스텀 interfaces 구현하기
 1. 개요
 2. 실습
-  1. package 생성하기
-  2. msg 파일 생성하기
-  3. 동일 package에서 interface 사용하기
-  4. 해보기
+   1. package 생성하기
+   2. msg 파일 생성하기
+   3. 동일 package에서 interface 사용하기
+   4. 해보기
 ## 1. 개요
 * 커스텀 interfaces를 구현하는 방법 (내 package에서 커스텀 interface를 선언하고 사용하기)
   * custom interfaces를 특정 package내에서 구현하는 것을 추천

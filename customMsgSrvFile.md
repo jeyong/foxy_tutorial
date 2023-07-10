@@ -30,7 +30,7 @@ mkdir msg srv
 ### 2-2 커스텀 정의 생성하기
 
 ### 2-2-1 msg 정의
-* tutorial_interfaces/msg.Num.msg 파일 생성하기
+* tutorial_interfaces/msg/Num.msg 파일 생성하기
 * Num.msg 파일 내부
 ```
 int64 num
