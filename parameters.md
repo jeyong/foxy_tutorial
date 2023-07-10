@@ -1,10 +1,10 @@
 # parameter 이해
 1. 개요
 2. 실습
-  1. 설정
-  2. ros2 param list
-  3. ros2 param get
-  4. ros2 param set
+   1. 설정
+   2. ros2 param list
+   3. ros2 param get
+   4. ros2 param set
 ## 1. 개요
 * ROS 2에서 parameter를 가져오기, 설정하기, 저장하고, 불러오기 배우기
 * parameter란?

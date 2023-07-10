@@ -154,6 +154,7 @@ ros2 service find std_srvs/srv/Empty
 ```bash
 ros2 interface show <type_name>.srv
 ```
+
 * /clear serive의 type인 Empty에 대해서 명령 실행해보기
 ```bash
 ros2 interface show std_srvs/srv/Empty.srv
@@ -163,7 +164,7 @@ ros2 interface show std_srvs/srv/Empty.srv
 ```
 ---
 ```
-  * --- 은 request와 response를 구분해주는 구분자. Empty type의 경우 data를 주고 받는 것이 없으므로 공백으로 표현
+   * --- 은 request와 response를 구분해주는 구분자. Empty type의 경우 data를 주고 받는 것이 없으므로 공백으로 표현
 
 * ros2 service list -t 명령을 실행한 결과로 /spawn의 type이 turtlesim/srv/Spawn 라는 것을 알고 있다.
 
@@ -181,15 +182,15 @@ string name # Optional.  A unique name will be created and returned if this is e
 ---
 string name
 ```
-  * spawn시키기 위해서 x, y, theta -> 생성할 turtle의 2D pose
-  * name은 option
+   * spawn시키기 위해서 x, y, theta -> 생성할 turtle의 2D pose
+   * name은 option
 
 ### 2-6 ros2 service call
 * service type을 알게 되었으니 이를 이용해서 service 호출하는 명령 형식
 ```bash
 ros2 service call <service_name> <service_type> <arguments>
 ```
-  * <arguments> 부분은 옵션. Empty type을 가지는 service는 arguments가 필요없음
+   * <arguments> 부분은 옵션. Empty type을 가지는 service는 arguments가 필요없음
 
 * /clear service 호출하는 명령 실행
 ```bash
@@ -199,7 +200,7 @@ ros2 service call /clear std_srvs/srv/Empty
 * 결과
 
 ![](https://docs.ros.org/en/foxy/_images/clear.png)
-  * turtlesim 창을 clear하는 명령
+   * turtlesim 창을 clear하는 명령
 
 * /spawn service 호출하는 명령 실행(YAML 문법 사용)
 ```bash
