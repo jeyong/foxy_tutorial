@@ -98,6 +98,7 @@ cd ~/ros2_ws
 ```bash
 source install/local_setup.bash
 ```
+
     * local_setup : workspace 내에 package에 대해서만 환경에 추가
     * setup : underlay와 overlay를 환경에 추가
 
