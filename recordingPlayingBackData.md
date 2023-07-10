@@ -33,7 +33,7 @@ ros2 run turtlesim turtlesim_node
 ```bash
 ros2 run turtlesim turtle_teleop_key
 
-* data를 저장할 새 디렉토리 만들기
+* 새 터미널을 열고 data를 저장할 새 디렉토리 만들기
 ```bash
 mkdir bag_files
 cd bag_files

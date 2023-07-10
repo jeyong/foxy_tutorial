@@ -1,13 +1,13 @@
 # workspace 생성하기
 1. 개요
 2. 실습
-  1. ROS 2 환경 source 하기
-  2. 새 directory 생성하기
-  3. 샘플 repo(저장소)를 clone 하기
-  4. 의존성 해결
-  5. colcon으로 workspace 빌드하기
-  6. overlay를 source 하기
-  7. overlay를 수정하기
+   1. ROS 2 환경 source 하기
+   2. 새 directory 생성하기
+   3. 샘플 repo(저장소)를 clone 하기
+   4. 의존성 해결
+   5. colcon으로 workspace 빌드하기
+   6. overlay를 source 하기
+   7. overlay를 수정하기
 
 ## 1. 개요
 * workspace 생성
