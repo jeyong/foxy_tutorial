@@ -84,7 +84,7 @@ if __name__ == '__main__':
 <maintainer email="you@email.com">Your Name</maintainer>
 <license>Apache License 2.0</license>
 ```
-  * <description>, <maintainer>, <license> 채우기
+  * description, maintainer, license 채우기
 
 * 위 코드 바로 밑에 아래 코드 복사해서 붙여넣기
 ```xml

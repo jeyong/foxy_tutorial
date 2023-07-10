@@ -1,7 +1,8 @@
 # service와 client 작성하기 (C++)
 1. 개요
 2. 실습
-
+   1. package 생성하기
+   2. 
 ## 1. 개요
 * C++로 service와 client nodes를 생성하고 빌드하기
 * service를 사용해서 nodes간 통신 구현 방법 이해
@@ -20,7 +21,7 @@
 ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp example_interfaces
 
 * exampel_interfaces package 내에 .srv 파일 (service에서 주고 받는 구조)
-```
+```yaml
 int64 a
 int64 b
 ---
