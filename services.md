@@ -1,12 +1,12 @@
 # service 이해
 1. 개요
 2. 실습
-  1. 환경설정
-  2. ros2 service list
-  3. ros2 service type
-  4. ros2 service find
-  5. ros2 interface show
-  6. ros2 service call
+   1. 환경설정
+   2. ros2 service list
+   3. ros2 service type
+   4. ros2 service find
+   5. ros2 interface show
+   6. ros2 service call
 ## 1. 개요
 * ROS graph 상에서 nodes 사이에서의 또다른 통신 방법 
 * publisher-subscriber 모델 vs. call-and-response 모델

@@ -126,7 +126,7 @@ angular:
 ### 2-5 ros2 topic info
 * topic은 1:1, 1:n, n:1, n:n 이 가능하다.
 
-* 현재 실행중인 topic 정보 확인하는 명령
+* 현재 실행중인 topic 정보(publisher와 subscriber 개수) 확인하는 명령
 ```bash
 ros2 topic info /turtle1/cmd_vel
 ```
