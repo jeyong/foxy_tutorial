@@ -1,18 +1,18 @@
 # action 생성하기
 1. 소개
 2. 실습
-  1. action 정의하기
-  2. action 빌드하기
+   1. action 정의하기
+   2. action 빌드하기
 
 ## 1. 소개
 * action 정의하는 방법 배우기
 
-* 기존에 배운 topics과 services와 같이 action 을 정의하고 빌드하는 방법 배워보기
+* 기존에 배운 topics과 services와 같이 action을 정의하고 빌드하는 방법 배워보기
 ## 2. 실습
 * action_tutorials_interfaces package 생성하기
 ```bash
-mkdir -p ros2_ws/src
-cd ros2_ws/src
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
 ros2 pkg create action_tutorials_interfaces
 ```
 
