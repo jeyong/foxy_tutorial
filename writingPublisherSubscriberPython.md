@@ -1,11 +1,16 @@
 # 간단한 publisher와 subscriber 작성하기 (Python)
 1. 소개
 2. 실습
-
+  1. package 생성하기
+  2. publisher node 작성하기
+  3. subscriber node 작성하기
+  4. 빌드 및 실행
 ## 1. 소개
+* Python으로  publisher와 subscriber node를 생성하고 실행하기
+
 * node는
-  * ROS graph 상에서 서로 통신하는 process
-  * topic 상으로 message를 전송하는 node와 수신하는 node
+  * ROS graph 상에서 서로 통신하는 실행가능한 process
+  * topic 상으로 message를 전송/수신하는 역할
     * talker
     * listener
 
@@ -68,11 +73,12 @@ if __name__ == '__main__':
 ```
 
 ### 2-2-1 의존성(dependencies) 추가
-* ros2_ws/src/py_pubsub 디렉토리로 이동
+* ros2_ws/src/py_pubsub 디렉토리로 아래 파일들
   * setup.py
   * setup.cfg
   * package.xml
-* package.xml 파일 열기
+
+* package.xml 파일 열기(Visual Studio Code)
 ```xml
 <description>Examples of minimal publisher/subscriber using rclcpp</description>
 <maintainer email="you@email.com">Your Name</maintainer>
@@ -120,7 +126,7 @@ install-scripts=$base/lib/py_pubsub
 ```bash
 wget https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 ```
-* 명령 실행 후 디렉토리 내부 파일
+* 명령 실행 후 디렉토리 내부 파일 (subscriber_member_function.py 추가된 것을 확인 목적)
 ```
 __init__.py  publisher_member_function.py  subscriber_member_function.py
 ```
@@ -167,7 +173,7 @@ if __name__ == '__main__':
 ```
 
 ### 2-3-2 entry point 추가하기
-* setup.py 파일 다시 열고 추가하기
+* setup.py 파일 다시 열고 listener 추가하기
 ```python
 entry_points={
         'console_scripts': [

@@ -3,19 +3,23 @@
 2. 실습
 
 ## 1. 개요
-* service를 사용해서 nodes간 통신
-* client node와 server node
+* C++로 service와 client nodes를 생성하고 빌드하기
+* service를 사용해서 nodes간 통신 구현 방법 이해
+* client node
   * request를 보내는 node
+* server node
   * request를 수신하고 나서 이에 대한 response를 보내는 node
 * request와 response는 .srv 파일로 정의
 
 ## 2. 실습
 ### 2-1 package 생성하기
-* 
+* ros2_ws/src 디렉토리 내에 새로운 package를 생성하기
+
+* cpp_srvcli package 생성하는 명령 실행
 ```bash
 ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp example_interfaces
 
-* .srv 파일
+* exampel_interfaces package 내에 .srv 파일 (service에서 주고 받는 구조)
 ```
 int64 a
 int64 b
@@ -24,7 +28,7 @@ int64 sum
 ```
 
 ### 2-1-1 package.xml 업데이트하기
-* package.xml
+* package.xml 수정하기
 ```xml
 <description>C++ client server tutorial</description>
 <maintainer email="you@email.com">Your Name</maintainer>
@@ -66,15 +70,13 @@ int main(int argc, char **argv)
 }
 ```
 ### 2-2-1 실행자(executable) 추가하기
-* CMakeLists.txt 파일 수정하기
-
-* executable로 설정
+* CMakeLists.txt 파일 수정하기 (server라는 실행자를 생성하도록)
 ```cmake
 add_executable(server src/add_two_ints_server.cpp)
 ament_target_dependencies(server rclcpp example_interfaces)
 ```
 
-* ros2 run으로 executable 찾기 가능
+* 아래 코드 추가하기(ros2 run 명령으로 실행자 찾기 가능하도록)
 ```cmake
 install(TARGETS
     server

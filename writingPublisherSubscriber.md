@@ -1,27 +1,35 @@
 # 간단한 publisher와 subscriber 작성하기 (C++)
 1. 소개
 2. 실습
+  1. package 생성하기
+  2. publisher node 작성하기
+  3. subscriber node 작성하기
+  4. 빌드 및 실행
 
 ## 1. 소개
+* C++로  publisher와 subscriber node를 생성하고 실행하기
+
 * node는
-  * ROS graph 상에서 서로 통신하는 process
-  * topic 상으로 message를 전송하는 node와 수신하는 node
+  * ROS graph 상에서 서로 통신하는 실행가능한 process
+  * topic 상으로 message를 전송/수신하는 역할
     * talker
     * listener
 
 ## 2. 실습
 ### 2-1 package 생성
-* ros2_ws/src 디렉토리 내에 새로운 package를 생성
-* cpp_pubsub package를 생성하는 명령
+* ros2_ws/src 디렉토리 내에 새로운 package를 생성하기
+
+* cpp_pubsub package를 생성하는 명령 실행
 ```bash
 ros2 pkg create --build-type ament_cmake cpp_pubsub
 ```
 
 ### 2-2 publisher node 작성하기
-* 아래 명령으로 talker 코드 다운받기
+* 아래 명령 실행하여 talker 코드 다운받기
 ```bash
 wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_publisher/member_function.cpp
 ```
+
 * Visual Studio Code로 publisher_member_function.cpp 파일 열기
 ```c++
 #include <chrono>
@@ -71,6 +79,8 @@ int main(int argc, char * argv[])
 ```
 
 ### 2-2-1 의존성(dependencies) 추가
+* ros2_ws/src/cpp_pubsub 디렉토리 아래 CMakeLists.txt와 package.xml 파일이 존재
+
 * package.xml 파일 열기
 ```xml
 <description>Examples of minimal publisher/subscriber using rclcpp</description>
@@ -85,14 +95,13 @@ int main(int argc, char * argv[])
 ```
 
 ### 2-2-2 CMakeLists.txt
-* CMakeLists.txt 파일 열기
-* find_package(ament_cmake REQUIRED) 뒤에 아래 파일 추가
+* CMakeLists.txt 파일 열고 수정하기(find_package(ament_cmake REQUIRED) 바로 뒤에 아래 코드 추가)
 ```cmake
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 ```
 
-* 이어서 추가
+* 이어서 추가하기
 ```cmake
 add_executable(talker src/publisher_member_function.cpp)
 ament_target_dependencies(talker rclcpp std_msgs)
@@ -105,7 +114,7 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME})
 ```
 
-* 최종 CMakeLists.txt
+* 최종 CMakeLists.txt 파일
 ```cmake
 cmake_minimum_required(VERSION 3.5)
 project(cpp_pubsub)
@@ -184,7 +193,7 @@ int main(int argc, char * argv[])
 ```
 
 ### 2-3-1 CMakeLists.txt
-* CMakeLists.txt 파일 열어서 publish entries 부분 아래 추가하기
+* CMakeLists.txt 파일 열어서 수정하기(publish entries 부분 아래에 추가)
 ```cmake
 add_executable(listener src/subscriber_member_function.cpp)
 ament_target_dependencies(listener rclcpp std_msgs)
@@ -211,7 +220,7 @@ colcon build --packages-select cpp_pubsub
 . install/setup.bash
 ```
 
-* talker node 실행하기
+* talker node 실행하는 명령 실행
 ```bash
 ros2 run cpp_pubsub talker
 ```
@@ -225,7 +234,7 @@ ros2 run cpp_pubsub talker
 [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
 ```
 
-* 새 터미널 열어서 listener 실행하기
+* 새 터미널 열어서 listener 실행하는 명령 실행
 ```bash
 ros2 run cpp_pubsub listener
 ```
@@ -238,3 +247,6 @@ ros2 run cpp_pubsub listener
 [INFO] [minimal_subscriber]: I heard: "Hello World: 13"
 [INFO] [minimal_subscriber]: I heard: "Hello World: 14"
 ```
+
+* 종료 방법
+  * Ctrl + C

@@ -1,10 +1,17 @@
 # 커스텀 msg와 srv 파일 생성하기
 1. 소개
 2. 실습
+  1. 새 package 생성하기
+  2. custom 정의 생성
+  3. CMakeLists.txt
+  4. package.xml
+  5. tutorial_interfaces package 빌드하기
+  6. msg와 srv 생성 확인
+  7. 새 interface 테스트하기
 
 ## 1. 소개
-* 사용자가 원하는 .msg와 .svr 파일 정의하기
-
+* 사용자가 원하는 .msg와 .svr 파일 정의하여 사용하는 방법
+* tutorial_interfaces package 내부에 msg와 srv 넣기
 ## 2. 실습
 ### 2-1 새 package 생성하기
 * 생성한 .msg와 .srv 파일을 사용하는 package 생성
@@ -23,22 +30,22 @@ mkdir msg srv
 ### 2-2 커스텀 정의 생성하기
 
 ### 2-2-1 msg 정의
-* tutorial_interfaces/msg 디렉토리 내부에 Num.msg 파일 생성하기
+* tutorial_interfaces/msg.Num.msg 파일 생성하기
 * Num.msg 파일 내부
 ```
 int64 num
 ```
 
-* tutorial_interfaces/msg 디렉토리 내부에 Sphere.msg 파일 생성하기
-* Sphere.smg 파일 내부
+* tutorial_interfaces/msg/Sphere.msg 파일 생성하기
+* Sphere.msg 파일 내부
 ```
 geometry_msgs/Point center
 float64 radius
 ```
-  * 다른 message package에 있는 message를 사용 
+  * 다른 message package(geometry_msgs/Point)에 있는 message를 사용 
 
 ### 2-2-2 srv 정의
-* tutorial_interfaces/msg 디렉토리 내부에 AddThreeInts.srv 파일 생성하기
+* tutorial_interfaces/srv/AddThreeInts.srv 파일 생성하기
 * AddThreeInts.srv 파일 내부
 ```
 int64 a
@@ -49,6 +56,7 @@ int64 sum
 ```
 
 ### 2-3 CMakeLists.txt 
+* CMakeLists.txt 파일 수정하기
 ```cmake
 find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
@@ -61,7 +69,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 ```
 
-### 2-4 package.xml
+### 2-4 package.xml 수정하기
 * package.xml 내에 <package> element 내부에 아래 코드를 추가
 ```xml
 <depend>geometry_msgs</depend>
@@ -231,16 +239,22 @@ ament_package()
 
 * package 빌드하기
 ```bash
-colcon build --packages-select cpp_srvcli
+colcon build --packages-select cpp_pubsub
+```
+* 새 터미널 열고 source 후 실행 (talker 실행)
+```bash
+ros2 run cpp_pubsub talker
+```
+* 새 터미널 열고 source 후 실행 (listener 실행)
+```bash
+ros2 run cpp_pubsub listener
 ```
 
-* 2개 터미널 열고 ros2_ws에 대한 source 수행
+* 결과
+```
+[INFO] [minimal_publisher]: Publishing: '0'
+[INFO] [minimal_publisher]: Publishing: '1'
+[INFO] [minimal_publisher]: Publishing: '2'
+```
 
-* service server 실행(터미널 1)
-```bash
-ros2 run cpp_srvcli server
-```
-* service client 실행(터미널 2)
-```bash
-ros2 run cpp_srvcli client 2 3 1
-```
+### service는 Homework!

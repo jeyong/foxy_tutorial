@@ -3,9 +3,11 @@
 2. 실습
 
 ## 1. 개요
-* service를 사용해서 nodes간 통신
-* client node와 server node
+* Python으로 service와 client nodes를 생성하고 빌드하기
+* service를 사용해서 nodes간 통신 구현 방법 이해
+* client node
   * request를 보내는 node
+* server node
   * request를 수신하고 나서 이에 대한 response를 보내는 node
 * request와 response는 .srv 파일로 정의
 
@@ -16,7 +18,7 @@
 ros2 pkg create --build-type ament_python py_srvcli --dependencies rclpy example_interfaces
 ```
 
-* .srv 파일
+* exampel_interfaces package 내에 .srv 파일 (service에서 주고 받는 구조)
 ```
 int64 a
 int64 b
@@ -42,8 +44,8 @@ license='Apache License 2.0',
 ```
 
 ### 2-2 service node 작성하기
-* ros2_ws/src/py_srvcli/py_srvcli/service_member_function.py 만들기
-
+* ros2_ws/src/py_srvcli/py_srvcli/service_member_function.py 파일 만들기
+* service_member_function.py 파일 열어서 아래 코드 붙여넣기
 ```python
 from example_interfaces.srv import AddTwoInts
 
@@ -78,6 +80,8 @@ if __name__ == '__main__':
     main()
 ```
 ### 2-2-1 entry point 추가하기
+* ros2 run 명령으로 service 를 실행시키기 위해서 entry point 설정 필요 (setup.py 파일)
+ 
 * ros2_ws/src/py_srvcli/setup.py 파일 열기
 * 'console_scripts': 부분에 아래 추가하기
 ```
@@ -129,7 +133,7 @@ if __name__ == '__main__':
 ```
 
 ### 2-3-1 entry point 추가하기
-* setup.py 파일 내부에 entry_points 필드
+* setup.py 파일 내부에 entry_points 필드에 client 부분 추가하기
 ```python
 entry_points={
     'console_scripts': [
@@ -145,7 +149,7 @@ entry_points={
 rosdep install -i --from-path src --rosdistro foxy -y
 ```
 
-* package 빌드하기
+* py_srvcli package 빌드하기
 ```bash
 cd ~/ros2_ws
 colcon build --packages-select py_srvcli
@@ -173,3 +177,6 @@ ros2 run py_srvcli client 2 3
 [INFO] [minimal_service]: Incoming request
 a: 2 b: 3
 ```
+
+* 실행 종료하기
+  * Ctrl + C
