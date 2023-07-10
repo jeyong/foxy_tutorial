@@ -173,7 +173,7 @@ rosdep install -i --from-path src --rosdistro foxy -y
 
 * 빌드하기 (cpp_srvcli package만)
 ```bash
-colcon build --packages-select cpp_srvcli
+colcon build --parallel-workers 1 --packages-select cpp_srvcli
 ```
 * 새 터미널 열고 source 하기
 ```bash
