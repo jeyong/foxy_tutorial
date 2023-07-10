@@ -1,9 +1,9 @@
 # rqt_console 사용해서 logs 보기
 1. 개요
 2. 실습
-  1. 설정
-  2. rqt_console에서 messages
-  3. Logger level
+   1. 설정
+   2. rqt_console에서 messages
+   3. Logger level
 
 ## 1. 개요
 * log

@@ -100,7 +100,7 @@ ros2 node info /turtlesim
     /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
   Action Clients:
 ```
-  * Action Servers로 /turtle1/rotate_absolute action에 대해서 feedback을 제공
+   * Action Servers는 /turtle1/rotate_absolute action에 대해서 feedback을 제공
 
 * /teleop_turtle node 정보 보기 명령 실행
 ```bash
@@ -127,7 +127,7 @@ ros2 node info /teleop_turtle
   Action Clients:
     /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
 ```
-  * Action Clients로서 해당 action name으로 goal을 server에게 전송
+   * Action Clients는 해당 action name으로 goal을 server에게 전송
 
 ### 2-4 ros2 action list
 * ROS graph 상에 있는 모든 actions의 목록을 보는 명령 실행하기
@@ -197,7 +197,7 @@ float32 remaining
 ```bash
 ros2 action send_goal <action_name> <action_type> <values>
 ```
-  * <values> 부분은 YAML 문법을 따른다.
+   * values 부분은 YAML 문법을 따른다.
 
 * turtlesim 창을 보면서 아래 명령을 실행 (goal을 전송)
 ```bash
@@ -217,8 +217,8 @@ Result:
 
 Goal finished with status: SUCCEEDED
 ```
-  * 모든 goals은 return messags 내부에 UID를 가진다. 
-  * result인 delta를 볼 수 있으며 starting position으로 교체
+   * 모든 goals은 return messags 내부에 UID를 가진다. 
+   * result인 delta를 볼 수 있으며 starting position으로 교체
 
 ----
 
