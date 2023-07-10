@@ -64,6 +64,6 @@ Debug : 시스템 실행시 단계별 실행을 모니터링 할때
 ```bash
 ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
 ```
-  * 이제 Info 레벨 메시지는 출력하지 않게 된다.
-  * 즉 일정 수준 중요도가 있는 메시지만 출력
+   * 이제 Info 레벨 메시지는 출력하지 않게 된다.
+   * 즉 일정 수준 중요도가 있는 메시지만 출력
 

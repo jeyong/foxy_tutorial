@@ -1,15 +1,15 @@
 # data 기록 및 재생
 1. 개요
 2. 실습
-  1. 설정
-  2. topic 선택하기
-  3. ros2 bag record
-  4. ros2 bag info
-  5. ros2 bag play
+   1. 설정
+   2. topic 선택하기
+   3. ros2 bag record
+   4. ros2 bag info
+   5. ros2 bag play
 
 ## 1. 개요
 * ros2 bag 명령
-  * topic에서 publish되는 data를 저장
+   * topic에서 publish되는 data를 저장
 * 나중에 저장된 data를 재생
 * 개발하면서 테스트 및 실험 목적
 
@@ -101,8 +101,8 @@ ros2 bag record /turtle1/cmd_vel
 
 ![](https://docs.ros.org/en/foxy/_images/record.png)
 
-  * 저장되는 data 파일 형태 : rosbag2_year_month_day-hour_minute_second
-  * 추가로 metadata.yaml 파일을 포함
+   * 저장되는 data 파일 형태 : rosbag2_year_month_day-hour_minute_second
+   * 추가로 metadata.yaml 파일을 포함
 
 * Ctrl+C로 종료하기 
 
@@ -111,7 +111,7 @@ ros2 bag record /turtle1/cmd_vel
 ```bash
 ros2 bag record -o subset /turtle1/cmd_vel /turtle1/pose
 ```
-  * -o 옵션 : bag 파일 이름 지정
+   * -o 옵션 : bag 파일 이름 지정
 
 * 결과
 ```
@@ -145,12 +145,12 @@ Messages:          3013
 Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
                  Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 3004 | Serialization Format: cdr
 ```
-  * 참고 : 개별 message는 sqlite3로 DB를 열어서 확인 가능
+   * 참고 : 개별 message는 sqlite3로 DB를 열어서 확인 가능
 
 ### 2-5 ros2 bag play
 * bag 파일을 재생하기 위한 준비
-  * teleop를 실행하는 터미널 stop 시키기(Ctrl+C)
-  * turtlesim 창이 보이도록 위치시키기
+   * teleop를 실행하는 터미널 stop 시키기(Ctrl+C)
+   * turtlesim 창이 보이도록 위치시키기
 
 * subset 이라는 bag 파일 재생 명령
 ```bash

@@ -1,6 +1,8 @@
 # nodes 실행하기
 1. 개요
 2. 실습
+   1. launch 파일 실행시키기
+   2. turtlesim nodes 제어하기
 
 ## 1. 개요
 * 터미널에서 여러 nodes를 한번에 실행하기
