@@ -2,7 +2,9 @@
 1. 개요
 2. 실습
    1. package 생성하기
-   2. 
+   2. service 작성하기
+   3. client node 작성하기
+   4. 빌드 및 실행하기
 ## 1. 개요
 * C++로 service와 client nodes를 생성하고 빌드하기
 * service를 사용해서 nodes간 통신 구현 방법 이해
