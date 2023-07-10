@@ -15,55 +15,6 @@
 ### 2-1 action server 작성하기
 * fibonacci_action_server.py 파일 추가하기 (위치 : ~/action_test)
 ```python
-import rclpy
-from rclpy.action import ActionServer
-from rclpy.node import Node
-
-from action_tutorials_interfaces.action import Fibonacci
-
-
-class FibonacciActionServer(Node):
-
-    def __init__(self):
-        super().__init__('fibonacci_action_server')
-        self._action_server = ActionServer(
-            self,
-            Fibonacci,
-            'fibonacci',
-            self.execute_callback)
-
-    def execute_callback(self, goal_handle):
-        self.get_logger().info('Executing goal...')
-        result = Fibonacci.Result()
-        return result
-
-
-def main(args=None):
-    rclpy.init(args=args)
-
-    fibonacci_action_server = FibonacciActionServer()
-
-    rclpy.spin(fibonacci_action_server)
-
-
-if __name__ == '__main__':
-    main()
-```
-
-* action server 실행하기
-```bash
-python3 fibonacci_action_server.py
-```
-
-* 새 터미널에서 goal 전송하는 명령 실행
-```bash
-ros2 action send_goal fibonacci action_tutorials_interfaces/action/Fibonacci "{order: 5}"
-```
-
-### 2-1-1 feedback을 publish하기
-* feedback을 action client에게 제공
-* 수정 (for-loop내에서 feedback message를 update하고 feedback message를 publish)
-```python
 import time
 
 
@@ -125,6 +76,16 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+```
+
+* action server 실행하기
+```bash
+python3 fibonacci_action_server.py
+```
+
+* 새 터미널에서 goal 전송하는 명령 실행
+```bash
+ros2 action send_goal fibonacci action_tutorials_interfaces/action/Fibonacci "{order: 5}"
 ```
 
 * action server 재시작(--feedback 옵션으로 feedback이 publish되고 있는지 확인)
@@ -212,4 +173,3 @@ python3 fibonacci_action_client.py
 [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
 # etc.
 ```
-  * 아직은 action client에서 result나 feedback을 확인하는 코드 없음
