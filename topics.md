@@ -1,15 +1,15 @@
 # topic 이해
 1. 개요
 2. 실습
-  1. 설정
-  2. rqt_graph
-  3. ros2 topic list
-  4. ros2 topic echo
-  5. ros2 topic info
-  6. ros2 interface show
-  7. ros2 topic pub
-  8. ros2 topic hz
-  9. 종료하기
+   1. 설정
+   2. rqt_graph
+   3. ros2 topic list
+   4. ros2 topic echo
+   5. ros2 topic info
+   6. ros2 interface show
+   7. ros2 topic pub
+   8. ros2 topic hz
+   9. 종료하기
 
 ## 1. 개요
 * ROS 2 topics에 대한 개념을 이해하기 위해서 rqt_graph와 CLI 도구 사용하는 방법을 이해해야 한다.
