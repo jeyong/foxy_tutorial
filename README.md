@@ -6,8 +6,8 @@
     * [terminator](./terminator.md)
     * [tmux 설치](https://seongkyun.github.io/others/2019/01/05/tmux/)
 * 기본
-  * terminal 사용법
-  * git 사용법
+  * [terminal 사용법](https://m.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS6390061632)
+  * github 사용법
 * CLI 도구
   * [환경설정](./환경설정.md)
   * [turtlesim, ros2, rqt 사용하기](./turtlesim_ros2_rqt.md)
