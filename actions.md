@@ -1,13 +1,13 @@
 # action 이해
 1. 소개
 2. 실습
-  1. 설정
-  2. action 사용하기
-  3. ros2 node info
-  4. ros2 action list
-  5. ros2 action info
-  6. ros2 interface show
-  7. ros2 action send_goal
+   1. 설정
+   2. action 사용하기
+   3. ros2 node info
+   4. ros2 action list
+   5. ros2 action info
+   6. ros2 interface show
+   7. ros2 action send_goal
 
 ## 1. 개요
 * ROS graph 상에서 nodes 사이에서의 또다른 통신 방법

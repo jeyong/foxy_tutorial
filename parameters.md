@@ -45,7 +45,7 @@ ros2 param list
   background_r
   use_sim_time
 ```
-  * /turtlesim의 parameters는 turtlesim 창의 배경 색상을 결정
+   * /turtlesim의 parameters는 turtlesim 창의 배경 색상을 결정
 
 ### 2-3 ros2 param get
 * parameter의 type과 현재 값 표시하는 명령 형식
@@ -82,7 +82,7 @@ Set parameter successful
 ```
 
 ![](https://docs.ros.org/en/foxy/_images/set.png)
-  * 배경색상이 변경
+   * 배경색상이 변경
 
 * 주의 :
   * set은 현재 실행 중인 프로그램에만 영향을 미친다. 즉 새로 node를 실행하는 경우 set으로 설정한 값이 보존되지 않는다.
