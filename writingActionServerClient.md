@@ -1,19 +1,23 @@
 # action server와 client 작성하기
 1. 소개
 2. 실습
+  1. action_tutorials_cpp package 생성하기
+  2. action server 작성하기
+  3. action client 작성하기
 
 ## 1. 소개
+* action server와 client 구현하는 방법 이해
+
 * action은 ROS내의 비동기 통신
   * action client가 action server에게 goal request를 전송
   * action server는 action client에게 goal feedback과 result를 전송
+
 * 준비
   * action_tutorials_interfaces package
   * Fibonacci.action interface
 
 ## 2. 실습
 ### 2-1 action_tutorials_cpp package 생성하기
-
-### 2-1-1 action성_tutorials_cpp package 생성
 * c++ action server를 위한 package 생성하는 명령
 ```bash
 cd ~/ros2_ws/src
@@ -21,7 +25,7 @@ ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action 
 ```
 
 ### 2-2 action server 작성하기
-* Fibonacci 수열을 계산하는 action server 작성
+* Fibonacci 수열을 계산하는 action server 작성과정 알아보기
 
 ### 2-2-1 action server 코드 작성하기
 * action_tutorials_cpp/src/fibonacci_action_server.cpp 파일 생성 및 복사
@@ -148,7 +152,7 @@ RCLCPP_COMPONENTS_REGISTER_NODE(action_tutorials_cpp::FibonacciActionServer)
   }
 ```
 
-### 2-2-2 action server 컴파일
+### 2-2-2 action server 컴파일 하기
 * action_tutorials_cpp/CMakeLists.txt 파일 열고 find_package 호출하는 부분 바로 뒤에 아래 내용 추가하기
 ```cmake
 add_library(action_server SHARED
@@ -178,15 +182,16 @@ colcon build
 ```
 
 ### 2-2-3 action server 실행하기
-* source 하기
+
 * action server 실행하기
 ```bash
+source install/setup.bash
 ros2 run action_tutorials_cpp fibonacci_action_server
 ```
 
 ### 2-3 action client 작성하기
 ### 2-3-1 action client 코드 작성하기
-* action_tutorials_cpp/src/fibonacci_action_client.cpp 파일 복사하기
+* action_tutorials_cpp/src/fibonacci_action_client.cpp 파일 생성 후 아래 코드 붙여넣기
 ```c++
 #include <functional>
 #include <future>
@@ -307,7 +312,7 @@ RCLCPP_COMPONENTS_REGISTER_NODE(action_tutorials_cpp::FibonacciActionClient)
     2. action client를 추가하는 ROS 2 node : this
     3. action name : 'fibonacci'
 
-### 3-2-3 action client 컴파일하기
+### 2-3-2 action client 컴파일하기
 * action_tutorials_cpp/CMakeLists.txt 파일 수정하기 (find_package 부분 바로 뒤에 추가)
 ```cmake
 add_library(action_client SHARED
@@ -339,6 +344,7 @@ colcon build
 * 먼저 action server가 별도 터미널에서 실행시킴
 * action client 실행하기
 ```bash
+source install/setup.bash
 ros2 run action_tutorials_cpp fibonacci_action_client
 ```
 
