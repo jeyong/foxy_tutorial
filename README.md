@@ -2,7 +2,9 @@
 * 개발 환경
   * [foxy ROS 2 설치](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
   * Visual Studio Code 설치
-  * [tmux 설치](https://seongkyun.github.io/others/2019/01/05/tmux/)
+  * 다중 터미널 프로그램
+    * [terminator](./terminator.md)
+    * [tmux 설치](https://seongkyun.github.io/others/2019/01/05/tmux/)
 * 기본
   * terminal 사용법
   * git 사용법
