@@ -57,7 +57,7 @@ rosdep install -i --from-path src --rosdistro foxy -y
 
 
 ### 2-5 colon으로 workspace 빌드하기
-* ros2_ws 디렉토리에서 아래 아래 명령으로 빌드하기
+* ros2_ws 디렉토리에서 아래 명령으로 빌드하기
 ```bash
 colcon build
 ```
