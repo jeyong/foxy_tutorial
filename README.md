@@ -9,6 +9,10 @@
 * 기본
   * [terminal 사용법](https://m.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS6390061632)
   * github 사용법
+    ```bash
+    git config --global user.name "jeyong"
+    git config --global user.email "support@gmail.com"
+    ```
 * CLI 도구
   * [환경설정](./환경설정.md)
   * [turtlesim, ros2, rqt 사용하기](./turtlesim_ros2_rqt.md)
