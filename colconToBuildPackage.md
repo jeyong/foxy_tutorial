@@ -43,7 +43,7 @@ git clone https://github.com/ros2/examples src/examples -b foxy
 
 ### 2-1-3 underlay를 source하기
 ```bash
-source /opt/ros2/foxy/setup.bash
+source /opt/ros/foxy/setup.bash
 ```
 
 ### 2-1-4 workspace 빌드하기
