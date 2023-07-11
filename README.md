@@ -11,7 +11,7 @@
   * github 사용법
     ```bash
     git config --global user.name "jeyong"
-    git config --global user.email "support@gmail.com"
+    git config --global user.email "support@gmail.com" 
     ```
 * CLI 도구
   * [환경설정](./환경설정.md)
