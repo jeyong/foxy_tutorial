@@ -120,6 +120,6 @@ ros2 node info /my_turtle
 
 * /teleop_turtle node에 대해서도 상세 정보 얻는 명령 실행해보기
 ```bash
-ros2 node info /teleop_turtle node
+ros2 node info /teleop_turtle
 ```
 
