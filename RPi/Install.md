@@ -2,6 +2,8 @@
 - 준비물
    * 메모리 리더기
 - Ubuntu 22.04 Desktop 이미지 다운 받기
+   * [링크](https://ubuntu.com/download/raspberry-pi)
+   * 현재 22.04.3이 최신!
    * ubuntu-22.04.2-preinstalled-desktop-arm64+raspi.img
 * Windows 운영체제 Raspberry Pi Imager v1.7.5 앱 설치
 * Raspberry Pi Imager v1.7.5 실행
